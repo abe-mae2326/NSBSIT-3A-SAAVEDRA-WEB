@@ -4,8 +4,9 @@ const navLinks = document.querySelectorAll('nav a');
         function setActiveLink(link) {
             navLinks.forEach(link => link.classList.remove('active'));
             link.classList.add('active');
-}
-         // Function to determine the currently active section
+        }
+        
+        // Function to determine the currently active section
         function updateActiveSection() {
             const scrollPosition = window.scrollY;
             for (const section of document.querySelectorAll('section')) {
@@ -15,7 +16,8 @@ const navLinks = document.querySelectorAll('nav a');
                     setActiveLink(targetLink);
                 }
             }
-}
+        }
+        
         // Initial call to set the active link based on the page load
         updateActiveSection();
 
@@ -35,4 +37,3 @@ const navLinks = document.querySelectorAll('nav a');
                 setActiveLink(link);
             });
         });
-        
