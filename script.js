@@ -15,4 +15,24 @@ const navLinks = document.querySelectorAll('nav a');
                     setActiveLink(targetLink);
                 }
             }
-        }
+}
+        // Initial call to set the active link based on the page load
+        updateActiveSection();
+
+        // Event listener to update the active link when scrolling
+        window.addEventListener('scroll', updateActiveSection);
+        
+        // Event listener for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+                setActiveLink(link);
+            });
+        });
+        
