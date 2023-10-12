@@ -4,4 +4,15 @@ const navLinks = document.querySelectorAll('nav a');
         function setActiveLink(link) {
             navLinks.forEach(link => link.classList.remove('active'));
             link.classList.add('active');
+}
+         // Function to determine the currently active section
+        function updateActiveSection() {
+            const scrollPosition = window.scrollY;
+            for (const section of document.querySelectorAll('section')) {
+                if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+                    const targetId = section.getAttribute('id');
+                    const targetLink = document.querySelector(`nav a[href="#${targetId}"]`);
+                    setActiveLink(targetLink);
+                }
+            }
         }
